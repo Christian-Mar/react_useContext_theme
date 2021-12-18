@@ -3,6 +3,7 @@
   justify-content: space-around;
   border-bottom: 1px solid  rgb(231, 231, 231);
   height: 20vh;
+  background-color: black;
 }
 
 a {
@@ -10,7 +11,11 @@ a {
   font-weight: 600;
   text-decoration: none;
   text-decoration: none;
-  color: black;
+  color: gray;
   font-size: 4rem;
   padding: 3rem;
+}
+
+a:hover {
+  color: white;
 }
