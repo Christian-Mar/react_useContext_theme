@@ -8,13 +8,13 @@ const Home = () => {
     const { backgroundColor } = useContext(ThemeContext);
 
   return (
-    <div className={styles.container} style={{backgroundColor}}>
-      <h1>Dit is de homepage</h1>
-      <p>Hier gaan we bepalen welke achtergrondkleur er gebruikt wordt op deze website. Kies een kleur: </p>
-      <ThemeSelector />
-
-    </div>
-  )
+		<div className={styles.container} style={{ backgroundColor }}>
+			<h1>Dit is de homepage</h1>
+			<p>Hier gaan we bepalen welke achtergrondkleur er gebruikt wordt. </p>
+			<p>Kies een kleur: </p>
+			<ThemeSelector />
+		</div>
+	);
 }
 
 export default Home
