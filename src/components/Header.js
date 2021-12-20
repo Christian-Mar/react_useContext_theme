@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { FaGithub } from 'react-icons/fa';
+import ThemeSelector from '../components/ThemeSelector';
 
 const Header = () => {
   return (
+		<>
 		<nav className={styles.navigation}>
 			<NavLink to='/'>Home</NavLink>
 			<NavLink to='/letters'>Letters</NavLink>
@@ -16,6 +18,7 @@ const Header = () => {
 				<FaGithub />
 			</a>
 		</nav>
+		<ThemeSelector /></>
 	);
 }
 

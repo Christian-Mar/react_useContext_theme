@@ -1,6 +1,10 @@
 .container {
-  height: 80vh;
-  font-size: 2rem;
+  height: 90vh;
+  font-size: 3rem;
   font-weight: 800;
-  padding: 4rem;
+  padding: 0rem;
+}
+
+h1 {
+  margin: 0;
 }
