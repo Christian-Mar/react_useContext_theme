@@ -1,5 +1,8 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
+import AddTask from '../components/AddTask';
+import TaskList from '../components/TaskList';
+
 import styles from './Home.module.css';
 
 const Home = () => {
@@ -7,7 +10,10 @@ const Home = () => {
 
 	return (
 		<div className={styles.container} style={{ backgroundColor }}>
-			<h1>Home</h1>
+			<h3>Takenlijst</h3>
+			<AddTask />
+			<TaskList />
+			
 		</div>
 	);
 };
