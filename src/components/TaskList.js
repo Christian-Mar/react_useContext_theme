@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, query, orderBy, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
+import { collection, query, orderBy, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import styles from './TaskList.module.css';
 
@@ -21,6 +21,10 @@ function TaskList() {
 			);
 		});
 	}, []);
+
+	const handleComplete = async (task) => {
+		await updateDoc(doc(db, 'tasks', task.id), {completed: !task.data.completed});
+	};
 
   const handleDelete = async (id) => {
     const taskDocRef = doc(db, 'tasks', id)
@@ -44,15 +48,36 @@ function TaskList() {
 							title={task.data.title}
 							description={task.data.description}
 						>
-							<h4 className={styles.list_item_title}>{task.data.title}</h4>
-							<p className={styles.list_item_description}>
+							<h4
+								className={styles.list_item_title}
+								style={{
+									textDecoration: task.data.completed && 'line-through',
+									color: task.data.completed && 'darkgray'
+								}}
+							>
+								{task.data.title}
+							</h4>
+
+							<p
+								className={styles.list_item_description}
+								style={{
+									textDecoration: task.data.completed && 'line-through',
+									color: task.data.completed && 'darkgray',
+								}}
+							>
 								{task.data.description}
 							</p>
 							<button
 								className={styles.list_item_button}
+								onClick={() => handleComplete(task)}
+							>
+								Bezig/gedaan
+							</button>
+							<button
+								className={styles.list_item_button}
 								onClick={() => handleDelete(task.id)}
 							>
-								Delete
+								Verwijder
 							</button>
 						</div>
 					))}

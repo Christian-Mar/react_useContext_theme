@@ -36,3 +36,12 @@
   background-color: black;
   border: none;
 }
+
+.list_item_edit {
+  flex: 5%;
+  margin: 5px;
+  padding: 5px 10px;
+  color: black;
+  background-color: transparent;
+  border: none; 
+}
