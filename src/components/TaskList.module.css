@@ -4,7 +4,6 @@
 }
 
 .list_item {
-  
   display: flex;
   align-items: flex-start;
   padding: 5px;
@@ -13,7 +12,7 @@
 }
 
 .list_item_title {
-  flex: 25%;
+  flex: 250px;
   font-size: 1rem;
   font-weight: 700;
   padding: 5px;
@@ -21,7 +20,7 @@
 }
 
 .list_item_description {
-  flex: 70%;
+  flex: 350px;
   font-size: 1rem;
   font-weight: 400;
   padding: 5px;
@@ -29,7 +28,7 @@
 }
 
 .list_item_button {
-  flex: 5%;
+  flex: 40px;
   margin: 5px;
   padding: 5px 10px;
   color: white;
@@ -37,8 +36,8 @@
   border: none;
 }
 
-.list_item_edit {
-  flex: 5%;
+.list_item_button_edit {
+  flex: 20px;
   margin: 5px;
   padding: 5px 10px;
   color: black;

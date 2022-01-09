@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { collection, query, orderBy, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+//import { FaEdit } from 'react-icons/fa';
 import styles from './TaskList.module.css';
 
 function TaskList() {
-	const [tasks, setTasks] = useState([]);
+	const [tasks, setTasks] = useState([]);	
 
 	/* Data van Firestore binnenhalen met sortering (laatste komt bovenaan) */
 	useEffect(() => {
@@ -50,29 +51,31 @@ function TaskList() {
 							title={task.data.title}
 							description={task.data.description}
 						>
-							<h4
-								className={styles.list_item_title}
-								style={{
-									textDecoration: task.data.completed
-										? 'line-through'
-										: undefined,
-									color: task.data.completed ? 'darkgray' : undefined,
-								}}
-							>
-								{task.data.title}
-							</h4>
-
+								<h4
+									className={styles.list_item_title}
+									style={{
+										textDecoration: task.data.completed
+											? 'line-through'
+											: undefined,
+										color: task.data.completed ? 'darkgray' : undefined
+									}}
+								>
+									{task.data.title}
+								</h4>
+							
+							
 							<p
 								className={styles.list_item_description}
 								style={{
 									textDecoration: task.data.completed
 										? 'line-through'
 										: undefined,
-									color: task.data.completed ? 'darkgray' : undefined,
+									color: task.data.completed ? 'darkgray' : undefined
 								}}
 							>
 								{task.data.description}
 							</p>
+							
 							<button
 								className={styles.list_item_button}
 								onClick={() => handleComplete(task)}
