@@ -10,7 +10,8 @@ function AddTask() {
 
 	/* functie om een taak toe te voegen in firebase.
   De collectie tasks wordt hierbij gedefinieerd vanuit de frontend, alsook de verschillende fields.
-  Firebase genereert automatisch een id voor het document */
+  Firebase genereert automatisch een id voor het document 
+	Timestamp wordt hier toegevoegd om nadien te kunnen sorteren op de volgorde van ingave van de taken, maar heeft geen afzonderlijke state */
 	const handleSubmit = async e => {
 		e.preventDefault();
 		try {

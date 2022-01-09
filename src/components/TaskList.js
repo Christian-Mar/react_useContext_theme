@@ -6,7 +6,7 @@ import styles from './TaskList.module.css';
 function TaskList() {
 	const [tasks, setTasks] = useState([]);
 
-	/* function to get all tasks from firestore in realtime */
+	/* Data van Firestore binnenhalen met sortering (laatste komt bovenaan) */
 	useEffect(() => {
 		const taskColRef = query(
 			collection(db, 'tasks'),
@@ -22,10 +22,12 @@ function TaskList() {
 		});
 	}, []);
 
+	/* Update van de taak - wisselt true & false als 'completed' */
 	const handleComplete = async (task) => {
 		await updateDoc(doc(db, 'tasks', task.id), {completed: !task.data.completed});
 	};
 
+	/* Deleten van een taak op basis van id */	
   const handleDelete = async (id) => {
     const taskDocRef = doc(db, 'tasks', id)
 		try {
@@ -44,15 +46,17 @@ function TaskList() {
 							className={styles.list_item}
 							id={task.id}
 							key={task.id}
-							completed={task.data.completed}
+							completed={task.data.completed.toString()} /* zonder toString() werkt het, maar met rode warning in de console */
 							title={task.data.title}
 							description={task.data.description}
 						>
 							<h4
 								className={styles.list_item_title}
 								style={{
-									textDecoration: task.data.completed && 'line-through',
-									color: task.data.completed && 'darkgray'
+									textDecoration: task.data.completed
+										? 'line-through'
+										: undefined,
+									color: task.data.completed ? 'darkgray' : undefined,
 								}}
 							>
 								{task.data.title}
@@ -61,8 +65,10 @@ function TaskList() {
 							<p
 								className={styles.list_item_description}
 								style={{
-									textDecoration: task.data.completed && 'line-through',
-									color: task.data.completed && 'darkgray',
+									textDecoration: task.data.completed
+										? 'line-through'
+										: undefined,
+									color: task.data.completed ? 'darkgray' : undefined,
 								}}
 							>
 								{task.data.description}
