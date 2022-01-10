@@ -1,0 +1,12 @@
+.edit {
+  display: flex;
+}
+
+.list_item_button {
+  flex: 40px;
+  margin: 5px;
+  padding: 5px 10px;
+  color: white;
+  background-color: black;
+  border: none;
+}

@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { collection, query, orderBy, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 //import { FaEdit } from 'react-icons/fa';
+import EditTask from './EditTask';
 import styles from './TaskList.module.css';
 
 function TaskList() {
 	const [tasks, setTasks] = useState([]);	
+	const [edit, setEdit] = useState(false);
 
 	/* Data van Firestore binnenhalen met sortering (laatste komt bovenaan) */
 	useEffect(() => {
@@ -42,7 +44,7 @@ function TaskList() {
 		<div>
 			<div>
 				<div className={styles.list}>
-					{tasks.map(task => (
+					{tasks.map(task => (					
 						<div
 							className={styles.list_item}
 							id={task.id}
@@ -57,38 +59,44 @@ function TaskList() {
 										textDecoration: task.data.completed
 											? 'line-through'
 											: undefined,
-										color: task.data.completed ? 'darkgray' : undefined
+										color: task.data.completed ? 'darkgray' : undefined,
 									}}
 								>
 									{task.data.title}
 								</h4>
-							
-							
-							<p
-								className={styles.list_item_description}
-								style={{
-									textDecoration: task.data.completed
-										? 'line-through'
-										: undefined,
-									color: task.data.completed ? 'darkgray' : undefined
-								}}
-							>
-								{task.data.description}
-							</p>
-							
-							<button
-								className={styles.list_item_button}
-								onClick={() => handleComplete(task)}
-							>
-								Bezig/gedaan
-							</button>
-							<button
-								className={styles.list_item_button}
-								onClick={() => handleDelete(task.id)}
-							>
-								Verwijder
-							</button>
+								<p
+									className={styles.list_item_description}
+									style={{
+										textDecoration: task.data.completed
+											? 'line-through'
+											: undefined,
+										color: task.data.completed ? 'darkgray' : undefined,
+									}}
+								>
+									{task.data.description}
+								</p>
+								<button
+									className={styles.list_item_button}
+									onClick={() => handleComplete(task)}
+								>
+									Bezig/Gedaan
+								</button>
+								<button
+									className={styles.list_item_button}
+									onClick={() => setEdit(true)}
+								>
+									Edit
+								</button>
+								<button
+									className={styles.list_item_button}
+									onClick={() => handleDelete(task.id)}
+								>
+									Verwijder
+								</button>
+								{(edit === true) && <EditTask task={task} setEdit={setEdit} />}
+									
 						</div>
+						
 					))}
 				</div>
 			</div>
