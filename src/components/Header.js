@@ -6,19 +6,21 @@ import ThemeSelector from '../components/ThemeSelector';
 const Header = () => {
   return (
 		<>
-		<nav className={styles.navigation}>
-			<NavLink to='/'>Home</NavLink>
-			<NavLink to='/letters'>Letters</NavLink>
-			<NavLink to='/cijfers'>Cijfers</NavLink>
-			<a
-				href='https://github.com/Christian-Mar/react_useContext_theme'
-				target='_blank'
-				rel='noopener noreferrer'
-			>
-				<FaGithub />
-			</a>
-		</nav>
-		<ThemeSelector /></>
+			<nav className={styles.navigation}>
+				<NavLink to='/'>Home</NavLink>
+				<NavLink to='/letters'>Letters</NavLink>
+				<NavLink to='/cijfers'>Cijfers</NavLink>
+				<NavLink to='/dogs'>Dogs</NavLink>
+				<a
+					href='https://github.com/Christian-Mar/react_useContext_theme'
+					target='_blank'
+					rel='noopener noreferrer'
+				>
+					<FaGithub />
+				</a>
+			</nav>
+			<ThemeSelector />
+		</>
 	);
 }
 
