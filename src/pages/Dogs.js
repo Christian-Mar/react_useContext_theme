@@ -9,7 +9,7 @@ const Dogs = () => {
   let [dogImages, setDogImages] = useState([]);
 
   const fetchData = () => {
-    fetch('https://api.thedogapi.com/v1/breeds')
+    fetch('https://api.thedogapi.com/v1/breeds/')
 			.then(response => {
 				return response.json();
 			})

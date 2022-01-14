@@ -1,0 +1,27 @@
+.detailPage {
+  height: 120vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem;
+  background-color: white;
+  max-width: 300px;
+  border: solid 3px black;
+  border-radius: 5px;
+}
+
+.identity_image {
+  margin: .4em;
+  border-radius: 5px;
+}
+.identity_item {
+  margin: .4em 1em;
+  font-size: 0.8rem;
+  text-align: left;
+}
