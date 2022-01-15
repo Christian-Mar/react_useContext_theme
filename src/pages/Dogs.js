@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import { Link } from 'react-router-dom';
+import Favorites from '../components/Favorites';
 import styles from './Dogs.module.css';
 
 const Dogs = () => {
@@ -26,6 +27,8 @@ const Dogs = () => {
 
   return (
 		<div className={styles.container} style={{ backgroundColor }}>
+			<Favorites />
+			<h4>All the dogs</h4>
 			<div>
 				{dogImages.length > 0 && (
 					<ul>

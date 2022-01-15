@@ -11,7 +11,7 @@
   flex-direction: column;
   margin: 4rem;
   background-color: white;
-  max-width: 500px;
+  max-width: 400px;
   border: solid 3px black;
   border-radius: 5px;
 }
@@ -33,4 +33,9 @@
   color: white;
   background-color: black;
   border: none;
+  cursor: pointer;
+}
+
+.identity_button:hover {
+  background-color: hsl(210, 12%, 25%);
 }

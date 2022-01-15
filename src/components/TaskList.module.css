@@ -36,11 +36,7 @@
   border: none;
 }
 
-.list_item_button_edit {
-  flex: 20px;
-  margin: 5px;
-  padding: 5px 10px;
-  color: black;
-  background-color: transparent;
-  border: none; 
+.list_item_button:hover {
+  background-color: hsl(210, 12%, 25%);
 }
+
