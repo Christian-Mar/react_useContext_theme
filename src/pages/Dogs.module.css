@@ -1,7 +1,7 @@
 .container {
   font-size: 1.1rem;
   font-weight: 800;
-  padding: 4rem;
+  padding: 1rem;
 }
 
 li {
@@ -13,6 +13,9 @@ li {
 }
 
 .dog_image {
-  width: 320px; 
+  width: 420px; 
   height: auto;
+  border-radius: 5px;
+  border: solid 3px black;
+  margin-bottom: -1em;
 }

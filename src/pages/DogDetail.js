@@ -30,6 +30,7 @@ const DogDetail = () => {
 			})
 			.then(data => {
 				setDogPicture(data);
+        window.scrollTo(0, 0);
 			})
 			.catch(err => console.log('error'));
 	}, [dogInfo.reference_image_id]); 
@@ -38,9 +39,15 @@ const DogDetail = () => {
 		<div className={styles.detailPage} style={{ backgroundColor }}>
 			<div className={styles.identity}>
 				<h4 className={styles.identity_title}>{dogInfo.name}</h4>
-				<img src={dogPicture.url} alt={dogPicture.name} className={styles.identity_image} />
+				<img
+					src={dogPicture.url}
+					alt={dogPicture.name}
+					className={styles.identity_image}
+				/>
 				<span className={styles.identity_item}>{dogInfo.description} </span>
 				<span className={styles.identity_item}>{dogInfo.temperament}</span>
+				<button className={styles.identity_button}>
+					Voeg toe aan favorieten </button>
 			</div>
 		</div>
 	);
