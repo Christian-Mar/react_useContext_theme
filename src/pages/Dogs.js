@@ -10,16 +10,21 @@ const Dogs = () => {
   let [dogImages, setDogImages] = useState([]);
 
   const fetchData = () => {
-    fetch('https://api.thedogapi.com/v1/breeds/')
+		const abortCont = new AbortController();
+    fetch('https://api.thedogapi.com/v1/breeds/', { signal: abortCont.signal })
 			.then(response => {
 				return response.json();
 			})
 			.then(data => {
 				setDogImages(data);
-			});
+			})
+			.catch(err => { if (err.name === 'AbortError') {console.log('fetch aborted') } else {console.log('error')}});
+
+      return () => abortCont.abort();
   }
 
   useEffect(() => {
+		
     fetchData()
   }, [])
 
@@ -29,6 +34,7 @@ const Dogs = () => {
 		<div className={styles.container} style={{ backgroundColor }}>
 			<Favorites />
 			<h4>All the dogs</h4>
+			<p> --- Click on a dog to get more details ---</p>
 			<div>
 				{dogImages.length > 0 && (
 					<ul>

@@ -2,11 +2,9 @@ import { useState, useEffect } from 'react';
 import {
 	collection,
 	query,
-	orderBy,
 	onSnapshot,
 	doc,
 	deleteDoc,
-	updateDoc,
 } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
@@ -38,7 +36,6 @@ const Favorites = () => {
 		}
 	};
 
-  const goRight= () => {}
   return (
 		<div>
 			<h4>Favorites</h4>
@@ -51,11 +48,12 @@ const Favorites = () => {
 						title={favorite.data.title}
 					>
 						<Link className={styles.link} to={`/dogs/${favorite.data.api_id}`}>
+							
 							<img
 								className={styles.image}
 								src={favorite.data.image}
 								alt={favorite.data.title}
-							/>
+							></img>
 							<h6 className={styles.title}>{favorite.data.title}</h6>
 						</Link>
 						<button

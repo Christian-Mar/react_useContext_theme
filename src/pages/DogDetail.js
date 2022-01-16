@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -15,20 +15,31 @@ const DogDetail = () => {
 
 
 	useEffect (() => {
-		fetch(`https://api.thedogapi.com/v1/breeds/${id}`)
+    const abortCont = new AbortController();
+		fetch(`https://api.thedogapi.com/v1/breeds/${id}`, {
+			signal: abortCont.signal,
+		})
 			.then(response => {
 				return response.json();
 			})
 			.then(data => {
 				setDogInfo(data);
 			})
-			.catch(err => console.log('error'));
+			.catch(err => {
+				if (err.name === 'AbortError') {
+					console.log('fetch aborted');
+				} else {
+					console.log('error');
+				}
+			});
+      return () => abortCont.abort();
 	}, [id]) 
 
 	console.log(dogInfo)
 
   useEffect(() => {
-		fetch(`https://api.thedogapi.com/v1/images/${dogInfo.reference_image_id}`)
+    const abortCont = new AbortController();
+		fetch(`https://api.thedogapi.com/v1/images/${dogInfo.reference_image_id}`, { signal : abortCont.signal })
 			.then(response => {
 				return response.json();
 			})
@@ -36,7 +47,9 @@ const DogDetail = () => {
 				setDogPicture(data);
         window.scrollTo(0, 0);
 			})
-			.catch(err => console.log('error'));
+			.catch(err => { if (err.name === 'AbortError') {console.log('fetch aborted') } else {console.log('error')}});
+
+      return () => abortCont.abort();
 	}, [dogInfo.reference_image_id]); 
 
   const handleFavorite = async e => {
@@ -67,7 +80,7 @@ const DogDetail = () => {
 				<span className={styles.identity_item}>Life span: {dogInfo.life_span} </span>
 				<span className={styles.identity_item}>Temperament: {dogInfo.temperament}</span>
 				<button className={styles.identity_button} onClick={handleFavorite}>
-					Voeg toe aan favorieten 🧡
+					Voeg toe aan favorieten 
 				</button>
 			</div>
 		</div>

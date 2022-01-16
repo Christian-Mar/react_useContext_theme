@@ -19,3 +19,8 @@ li {
   border: solid 3px black;
   margin-bottom: -1em;
 }
+
+p {
+  font-size: small;
+  font-weight: 400;
+}
