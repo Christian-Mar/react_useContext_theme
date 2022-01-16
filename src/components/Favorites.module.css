@@ -1,18 +1,48 @@
 .list {
+  width: 100vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   padding-bottom: 5rem;
   border-bottom: solid 1px rgb(165, 165, 165);
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
   border: solid 2px black;
   border-radius: 5px;
   background-color: white;
 }
 
-.image {
-  height: 160px;
-  width: auto; 
+.link { 
+  padding: 0;
 }
+
+.image {
+  height: 120px;
+  margin: 10px;
+  border-radius: 5px;
+
+}
+
+.title {
+  height: 1.2rem;
+  font-size: .8rem;
+  padding: 12px;
+  margin: 0;
+}
+
+.button {
+  height: 25px;
+  border: none;
+  color: white;
+  background-color: hsl(210, 12%, 15%);
+}
+
+.button:hover {
+  background-color: hsl(210, 12%, 25%);
+}
+

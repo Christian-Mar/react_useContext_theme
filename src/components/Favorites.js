@@ -9,12 +9,11 @@ import {
 	updateDoc,
 } from 'firebase/firestore';
 import { db } from '../firebase';
-import Dogs from '../pages/Dogs';
+import { Link } from 'react-router-dom';
 import styles from './Favorites.module.css';
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
-  const [index, setIndex] = useState(0);
 
   useEffect(() => {
 		const dogColRef = query(
@@ -30,20 +29,46 @@ const Favorites = () => {
 		});
 	}, []);
 
+  const handleDelete = async id => {
+		const taskDocRef = doc(db, 'dogs', id);
+		try {
+			await deleteDoc(taskDocRef);
+		} catch (err) {
+			alert(err);
+		}
+	};
+
+  const goRight= () => {}
   return (
-    <div>
-      <h4>Favorites</h4>
-      <div className={styles.list}>
-        {favorites.map(favorite => (
-          <div className={styles.card} id={favorite.id} key={favorite.id} title={favorite.data.title}>
-            
-            <img className={styles.image} src={favorite.data.image} alt={favorite.data.title}/>
-            <h6>{favorite.data.title}</h6>
-          </div>
-        ))}
-      </div>
-    </div>
-  )}
+		<div>
+			<h4>Favorites</h4>
+			<div className={styles.list}>
+				{favorites.map(favorite => (
+					<div
+						className={styles.card}
+						id={favorite.id}
+						key={favorite.id}
+						title={favorite.data.title}
+					>
+						<Link className={styles.link} to={`/dogs/${favorite.data.api_id}`}>
+							<img
+								className={styles.image}
+								src={favorite.data.image}
+								alt={favorite.data.title}
+							/>
+							<h6 className={styles.title}>{favorite.data.title}</h6>
+						</Link>
+						<button
+							className={styles.button}
+							onClick={() => handleDelete(favorite.id)}
+						>
+							Verwijder uit favorieten
+						</button>
+					</div>
+				))}
+			</div>
+		</div>
+	);}
 
 
 export default Favorites

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -8,9 +8,11 @@ import styles from './DogDetail.module.css';
 const DogDetail = () => {
   const { backgroundColor } = useContext(ThemeContext);
 	const {id} = useParams();
+  let navigate = useNavigate();
   console.log(id);
 	let [dogInfo, setDogInfo] = useState([]);
   let [dogPicture, setDogPicture] = useState([]);
+
 
 	useEffect (() => {
 		fetch(`https://api.thedogapi.com/v1/breeds/${id}`)
@@ -41,11 +43,13 @@ const DogDetail = () => {
 		e.preventDefault();
 		try {
 			await addDoc(collection(db, 'dogs'), {
+        api_id: dogInfo.id,
 				title: dogInfo.name,
 				image: dogPicture.url,
 				life_span: dogInfo.life_span,
 				temperament: dogInfo.temperament,
 			});
+      navigate('/dogs');
 		} catch (err) {
 			alert(err);
 		}
