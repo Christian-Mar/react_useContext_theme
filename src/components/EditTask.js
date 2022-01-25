@@ -15,28 +15,30 @@ const EditTask = ({ task, setTaskToEdit }) => {
   };
   if (!task) return null;
   return (
-    <div className={styles.edit}>
-      <input
-        type="text"
-        placeholder="Taak"
-        onChange={(e) => setNewTitle(e.target.value.toUpperCase())}
-      />
-      <input
-        type="text"
-        placeholder="Beschrijving"
-        onChange={(e) => setNewDescription(e.target.value)}
-      />
-      <button
-        className={styles.list_item_button}
-        onClick={() => {
-          handleEdit(task);
-          setTaskToEdit(null);
-        }}
-      >
-        Update
-      </button>
-    </div>
-  );
+		<div className={styles.edit}>
+			<input
+				type='text'
+				placeholder='Titel'
+				value={newTitle}
+				onChange={e => setNewTitle(e.target.value.toUpperCase())}
+			/>
+			<input
+				type='text'
+				placeholder='Beschrijving'
+				value={newDescription}
+				onChange={e => setNewDescription(e.target.value)}
+			/>
+			<button
+				className={styles.list_item_button}
+				onClick={() => {
+					handleEdit(task);
+					setTaskToEdit(null);
+				}}
+			>
+				Update
+			</button>
+		</div>
+	);
 };
 
 export default EditTask;

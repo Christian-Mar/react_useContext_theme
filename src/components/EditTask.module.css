@@ -1,5 +1,6 @@
 .edit {
   display: flex;
+  flex-direction: column;
 }
 
 .list_item_button {
