@@ -19,14 +19,12 @@ const EditTask = ({ task, setTaskToEdit }) => {
 			<input
 				type='text'
 				placeholder='Titel'
-				value={newTitle}
-				onChange={e => setNewTitle(e.target.value.toUpperCase())}
+				onChange={e => setNewTitle(e.target.value)}
 			/>
 			<input
 				type='text'
 				placeholder='Beschrijving'
-				value={newDescription}
-				onChange={e => setNewDescription(e.target.value)}
+				onChange={e => {setNewDescription(e.target.value)}}
 			/>
 			<button
 				className={styles.list_item_button}
