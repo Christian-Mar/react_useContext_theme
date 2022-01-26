@@ -35,7 +35,7 @@ function AddTask() {
 				<input
 					type='text'
 					name='title'
-					onChange={e => setTitle(e.target.value.toUpperCase())}
+					onChange={e => setTitle(e.target.value)}
 					value={title}
 					placeholder='Nieuwe taak'
 				/>
