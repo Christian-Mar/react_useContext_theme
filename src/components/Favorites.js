@@ -11,12 +11,10 @@ import { Link } from 'react-router-dom';
 import styles from './Favorites.module.css';
 
 const Favorites = () => {
-  const [favorites, setFavorites] = useState([]);
+	const [favorites, setFavorites] = useState([]);
 
-  useEffect(() => {
-		const dogColRef = query(
-			collection(db, 'dogs')
-		);
+	useEffect(() => {
+		const dogColRef = query(collection(db, 'dogs'));
 		onSnapshot(dogColRef, snapshot => {
 			setFavorites(
 				snapshot.docs.map(doc => ({
@@ -27,7 +25,7 @@ const Favorites = () => {
 		});
 	}, []);
 
-  const handleDelete = async id => {
+	const handleDelete = async id => {
 		const taskDocRef = doc(db, 'dogs', id);
 		try {
 			await deleteDoc(taskDocRef);
@@ -36,7 +34,7 @@ const Favorites = () => {
 		}
 	};
 
-  return (
+	return (
 		<div>
 			<h4>Favorites</h4>
 			<div className={styles.list}>
@@ -48,16 +46,15 @@ const Favorites = () => {
 						title={favorite.data.title}
 					>
 						<Link className={styles.link} to={`/dogs/${favorite.data.api_id}`}>
-							
 							<img
 								className={styles.image}
 								src={favorite.data.image}
 								alt={favorite.data.title}
 							></img>
-							<h6 className={styles.title}>{favorite.data.title}</h6>
-							<p>cat friendly: {favorite.data.rating/5*100}%</p>
-
 						</Link>
+						<h6 className={styles.title}>{favorite.data.title}</h6>
+						<p>cat friendly: {(favorite.data.rating / 5) * 100}%</p>
+
 						<button
 							className={styles.button}
 							onClick={() => handleDelete(favorite.id)}
@@ -68,7 +65,7 @@ const Favorites = () => {
 				))}
 			</div>
 		</div>
-	);}
+	);
+};
 
-
-export default Favorites
+export default Favorites;
