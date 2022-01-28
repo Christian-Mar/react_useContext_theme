@@ -46,3 +46,27 @@
   background-color: hsl(210, 12%, 25%);
 }
 
+.stars {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-bottom: 1rem;
+}
+
+.starRating {
+  font-size: 0.8rem;
+  margin-right: .5rem;
+}
+.on {
+  color: lightgrey;
+}
+
+.off {
+  color: orange;
+}
+
+.score {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgb(129, 129, 129);
+}

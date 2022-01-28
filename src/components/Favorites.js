@@ -53,8 +53,26 @@ const Favorites = () => {
 							></img>
 						</Link>
 						<h6 className={styles.title}>{favorite.data.title}</h6>
-						<p>cat friendly: {(favorite.data.rating / 5) * 100}%</p>
-
+						<p>cat friendly: </p>
+						<div className={styles.stars}>
+							<div className={styles.starRating}>
+								{[...Array(5)].map((star, index) => {
+									index += 1;
+									return (
+										<span
+											className={
+												index > favorite.data.rating ? styles.on : styles.off
+											}
+										>
+											&#9733;
+										</span>
+									);
+								})}
+							</div>
+							<div className={styles.score}>
+								{(favorite.data.rating / 5) * 100}%
+							</div>
+						</div>
 						<button
 							className={styles.button}
 							onClick={() => handleDelete(favorite.id)}
