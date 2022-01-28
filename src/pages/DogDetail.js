@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import StarRating from '../components/StarRating';
 import styles from './DogDetail.module.css';
 
 const DogDetail = () => {
@@ -12,7 +13,8 @@ const DogDetail = () => {
   console.log(id);
 	let [dogInfo, setDogInfo] = useState([]);
   let [dogPicture, setDogPicture] = useState([]);
-
+	let [score, setScore] = useState();
+	console.log(score);
 
 	useEffect (() => {
     const abortCont = new AbortController();
@@ -36,6 +38,7 @@ const DogDetail = () => {
 	}, [id]) 
 
 	console.log(dogInfo)
+	
 
   useEffect(() => {
     const abortCont = new AbortController();
@@ -61,7 +64,9 @@ const DogDetail = () => {
 				image: dogPicture.url,
 				life_span: dogInfo.life_span,
 				temperament: dogInfo.temperament,
+				rating: score || 0,
 			});
+			
       navigate('/dogs');
 		} catch (err) {
 			alert(err);
@@ -79,6 +84,8 @@ const DogDetail = () => {
 				/>
 				<span className={styles.identity_item}>Life span: {dogInfo.life_span} </span>
 				<span className={styles.identity_item}>Temperament: {dogInfo.temperament}</span>
+				<p>How cat friendly is this dog in your opinion?</p>
+				<StarRating changeScore={star => setScore(star)}/>
 				<button className={styles.identity_button} onClick={handleFavorite}>
 					Voeg toe aan favorieten 
 				</button>

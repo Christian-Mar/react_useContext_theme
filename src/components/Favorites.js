@@ -55,6 +55,8 @@ const Favorites = () => {
 								alt={favorite.data.title}
 							></img>
 							<h6 className={styles.title}>{favorite.data.title}</h6>
+							<p>cat friendly: {favorite.data.rating/5*100}%</p>
+
 						</Link>
 						<button
 							className={styles.button}
