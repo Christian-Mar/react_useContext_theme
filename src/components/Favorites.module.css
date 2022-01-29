@@ -59,10 +59,12 @@
 }
 .on {
   color: lightgrey;
+  margin-right: .2rem;
 }
 
 .off {
   color: orange;
+  margin-right: .2rem;
 }
 
 .score {

@@ -9,6 +9,7 @@ import {
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
 import styles from './Favorites.module.css';
+import { FaCat } from 'react-icons/fa';
 
 const Favorites = () => {
 	const [favorites, setFavorites] = useState([]);
@@ -64,7 +65,7 @@ const Favorites = () => {
 												index > favorite.data.rating ? styles.on : styles.off
 											}
 										>
-											&#9733;
+											< FaCat />
 										</span>
 									);
 								})}
