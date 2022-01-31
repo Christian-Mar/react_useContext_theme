@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import styles from "./EditTask.module.css";
 
 const EditTask = ({ task, setTaskToEdit }) => {

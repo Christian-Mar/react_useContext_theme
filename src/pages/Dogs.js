@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import { Link } from 'react-router-dom';
-import Favorites from '../components/Favorites';
+import Favorites from '../components/dogs/Favorites';
 import styles from './Dogs.module.css';
 
 const Dogs = () => {

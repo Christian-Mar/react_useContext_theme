@@ -6,7 +6,7 @@ import {
 	doc,
 	deleteDoc,
 } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import { Link } from 'react-router-dom';
 import styles from './Favorites.module.css';
 import { FaCat } from 'react-icons/fa';

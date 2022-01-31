@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './AddTask.module.css';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 function AddTask() {

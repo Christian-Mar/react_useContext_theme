@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
-import AddTask from '../components/AddTask';
-import TaskList from '../components/TaskList';
+import AddTask from '../components/todo/AddTask';
+import TaskList from '../components/todo/TaskList';
 
 import styles from './Home.module.css';
 

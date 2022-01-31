@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import StarRating from '../components/StarRating';
+import StarRating from '../components/dogs/StarRating';
 import styles from './DogDetail.module.css';
 
 const DogDetail = () => {
