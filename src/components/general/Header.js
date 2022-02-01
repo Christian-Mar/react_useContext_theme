@@ -9,7 +9,7 @@ const Header = () => {
 			<nav className={styles.navigation}>
 				<NavLink to='/'>Home</NavLink>
 				<NavLink to='/dogs'>Dogs</NavLink>
-				<NavLink to='/holiday'>Travel</NavLink>
+				<NavLink to='/travel'>Travel</NavLink>
 				<a
 					href='https://github.com/Christian-Mar/react_useContext_theme'
 					target='_blank'

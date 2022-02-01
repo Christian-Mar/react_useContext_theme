@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/general/Header';
 import Home from './pages/Home';
 import Dogs from './pages/Dogs';
-import Holiday from './pages/Holiday';
+import Travel from './pages/Travel';
 import DogDetail from './pages/DogDetail';
 import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
@@ -16,7 +16,7 @@ function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/dogs' element={<Dogs />} />
 					<Route path='/dogs/:id' element={<DogDetail />} />
-					<Route path='/holiday' element={<Holiday />} />
+					<Route path='/travel' element={<Travel />} />
 				</Routes>
 			</div>
 		</ThemeProvider>

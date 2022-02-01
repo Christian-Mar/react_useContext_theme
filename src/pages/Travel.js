@@ -1,16 +1,18 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
-import styles from './Holiday.module.css';
+import Distance from '../components/travel/Distance';
+import styles from './Travel.module.css';
 
-const Holiday = () => {
+const Travel = () => {
 	const { backgroundColor } = useContext(ThemeContext);
 
 	return (
 		<div className={styles.container} style={{ backgroundColor }}>
 			<h1>Hello holiday</h1>
       <p>Some text</p>
+			<Distance />
 		</div>
 	);
 };
 
-export default Holiday;
+export default Travel;
