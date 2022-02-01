@@ -36,24 +36,24 @@ const DogDetail = () => {
   console.log(dogInfo);
 
   useEffect(() => {
-    if (dogInfo) {
-      fetch(`https://api.thedogapi.com/v1/images/${dogInfo.reference_image_id}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setDogPicture(data);
-          window.scrollTo(0, 0);
-        })
-        .catch((err) => {
-          if (err.name === "AbortError") {
-            console.log("fetch aborted");
-          } else {
-            console.log("error");
-          }
-        });
-    }
-  }, [dogInfo?.reference_image_id]);
+		if (dogInfo) {
+			fetch(`https://api.thedogapi.com/v1/images/${dogInfo.reference_image_id}`)
+				.then(response => {
+					return response.json();
+				})
+				.then(data => {
+					setDogPicture(data);
+					window.scrollTo(0, 0);
+				})
+				.catch(err => {
+					if (err.name === 'AbortError') {
+						console.log('fetch aborted');
+					} else {
+						console.log('error');
+					}
+				});
+		}
+	}, [dogInfo]);
 
   const handleFavorite = async (e) => {
     e.preventDefault();

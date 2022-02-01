@@ -9,7 +9,6 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
-//import { FaEdit } from 'react-icons/fa';
 import EditTask from "./EditTask";
 import styles from "./TaskList.module.css";
 
