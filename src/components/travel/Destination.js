@@ -18,7 +18,7 @@ const Destination = () => {
 				trafficFlow: true,
 			},
 			center: [longitude, latitude],
-			zoom: 12,
+			zoom: 13,
 		});
 
 		//	setMap(map);
