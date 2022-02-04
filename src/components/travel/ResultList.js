@@ -1,14 +1,17 @@
-const ResultBox = ({ result, setLongitude, setLatitude }) => (
-	<div className='result' setlongitude={setLongitude(result.position.lng)} setlatitude={setLatitude(result.position.lat)}>
-		<div className='result-name'>
+import { useEffect } from 'react';
+import styles from './ResultList.module.css';
+
+const ResultBox = ({ result, setLongitude, setLatitude }) => {
+  useEffect(()=> {setLatitude(result.position.lat); setLongitude(result.position.lng)},[result, setLongitude, setLatitude])
+return (
+	<div className='result'  >
+		<div className={styles.resultName} >
 			{result.address.freeformAddress} - {result.address.country}
 		</div>
-		
-
-		{result.poi ? (
-			<div className='result-name'>Location name: {result.poi.name}</div>
-		) : null}
 	</div>
-);
+)
+}
+
+;
 
 export default ResultBox;

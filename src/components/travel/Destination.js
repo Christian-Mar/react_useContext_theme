@@ -18,17 +18,18 @@ const Destination = () => {
 				trafficFlow: true,
 			},
 			center: [longitude, latitude],
-			zoom: 13,
+			zoom: 12,
+			language: 'nl-NL',
 		});
 
-		//	setMap(map);
+			//setMap(map);
 
 		return () => map.remove();
 	}, [longitude, latitude]);
 
 	return (
 		<div className={styles.container}>
-			<h1>Where to?</h1>
+			<h1>Waar gaan we naartoe?</h1>
 			<FuzzySearch setLongitude={setLongitude} setLatitude={setLatitude} />
 			<div ref={mapElement} className={styles.map}></div>
 		</div>

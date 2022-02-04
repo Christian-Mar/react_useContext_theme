@@ -6,34 +6,29 @@ import styles from './Location.module.css';
 export default function FuzzySearch(props) {
 	const [name, setName] = useState('');
 	const [result, setResult] = useState([]);
-  
- 
- 
 
 	const fuzzySearch = name => {
 		ttapi.services
 			.fuzzySearch({
 				key: process.env.REACT_APP_TOMTOM_API_KEY,
 				query: name,
+        language: 'nl-NL',
 			})
 			//.go()
 			.then(res => {
 				const amendRes = res.results;
 				setResult(amendRes);
-				
 			})
 			.catch(err => {
 				console.log(err);
 			});
 	};
-  
-  
 
 	const resultList =
 		result.length > 0 ? (
 			result.map(resultItem => (
 				<div className={styles.resultItem} key={resultItem.id}>
-					<div className='box'>
+					<div>
 						<ResultBox
 							result={resultItem}
 							setLongitude={props.setLongitude}
@@ -43,29 +38,28 @@ export default function FuzzySearch(props) {
 				</div>
 			))[0]
 		) : (
-			<h4>Nog geen locatie opgegeven</h4>
+			<p>Nog geen locatie opgegeven</p>
 		);
 
 	return (
 		<div className='App'>
-     
 			<input
-				className='input'
+				className={styles.inputField}
 				type='text'
-				placeholder='Search Location'
+				placeholder='Plaats, adres, ...'
 				value={name}
 				onChange={e => {
 					setName(e.target.value);
 				}}
 				onKeyPress={e => {
 					if (e.key === 'Enter') {
-						fuzzySearch(name);	
+						fuzzySearch(name);
+            setName('');
 					}
 				}}
 				required
 			/>
 			{resultList}
-
 		</div>
 	);
 }
