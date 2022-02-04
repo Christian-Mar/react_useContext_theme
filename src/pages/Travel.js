@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
-import Distance from '../components/travel/Distance';
+import Destination from '../components/travel/Destination';
 import FuzzySearch from '../components/travel/Location';
 import styles from './Travel.module.css';
 
@@ -11,7 +11,7 @@ const Travel = () => {
 		<div className={styles.container} style={{ backgroundColor }}>
 			<h1>Hello holiday</h1>
       <p>Some text</p>
-			<Distance />
+			<Destination />
 			<FuzzySearch />
 		</div>
 	);

@@ -1,22 +1,18 @@
-const ResultBox = ({ result }) => (
+const ResultBox = ({ result, setLongitude, setLatitude }) => (
 	<div className='result'>
 		<div className='result-name'>
 			Location Address: {result.address.freeformAddress}
 		</div>
-		<div className='result-name'>
-			Position: {result.position.lng}
-		</div>
+		<div className='result-name'>Longitude: {result.position.lng}</div>
+		<div className='result-name'>Latitude: {result.position.lat}</div>
 		<div className='result-name'>
 			Location country: {result.address.country}
 		</div>
-		<div className='result-type'>
-			City: {result.address.municipalitySubdivision}
-		</div>
+
 		{result.poi ? (
 			<div className='result-name'>Location name: {result.poi.name}</div>
-		) : (
-			<h4>Location has no specific name</h4>
-		)}
+		) : null}
+		<button onClick={() => {setLongitude(result.position.lng); setLatitude(result.position.lat)}}>Go!</button>
 	</div>
 );
 

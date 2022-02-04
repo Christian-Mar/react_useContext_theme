@@ -4,13 +4,20 @@ import { FaGithub } from 'react-icons/fa';
 import ThemeSelector from './ThemeSelector';
 
 const Header = () => {
-  return (
+	return (
 		<>
 			<nav className={styles.navigation}>
-				<NavLink to='/'>Home</NavLink>
-				<NavLink to='/dogs'>Dogs</NavLink>
-				<NavLink to='/travel'>Travel</NavLink>
+				<NavLink to='/' className={styles.link}>
+					Home
+				</NavLink>
+				<NavLink to='/dogs' className={styles.link}>
+					Dogs
+				</NavLink>
+				<NavLink to='/travel' className={styles.link}>
+					Travel
+				</NavLink>
 				<a
+					className={styles.link}
 					href='https://github.com/Christian-Mar/react_useContext_theme'
 					target='_blank'
 					rel='noopener noreferrer'
@@ -21,6 +28,6 @@ const Header = () => {
 			<ThemeSelector />
 		</>
 	);
-}
+};
 
-export default Header
+export default Header;

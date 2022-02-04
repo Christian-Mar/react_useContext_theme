@@ -10,11 +10,9 @@ const DogDetail = () => {
   const { backgroundColor } = useContext(ThemeContext);
   const { id } = useParams();
   let navigate = useNavigate();
-  console.log(id);
   let [dogInfo, setDogInfo] = useState();
   let [dogPicture, setDogPicture] = useState();
   let [score, setScore] = useState();
-  console.log(score);
 
   useEffect(() => {
     fetch(`https://api.thedogapi.com/v1/breeds/${id}`)

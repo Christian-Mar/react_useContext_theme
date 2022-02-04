@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './StarRating.module.css';
 import { FaCat } from 'react-icons/fa';
 
-const StarRating = (props) => {
+const StarRating = props => {
 	const [rating, setRating] = useState(0);
 	const [hover, setHover] = useState(0);
 	return (
@@ -22,7 +22,6 @@ const StarRating = (props) => {
 						onMouseLeave={() => setHover(rating)}
 					>
 						<span className='star'>
-							{/*&#9733;*/}
 							<FaCat />
 						</span>
 					</button>
