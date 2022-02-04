@@ -14,7 +14,6 @@ export default function FuzzySearch(props) {
 				query: name,
         language: 'nl-NL',
 			})
-			//.go()
 			.then(res => {
 				const amendRes = res.results;
 				setResult(amendRes);
