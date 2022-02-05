@@ -1,16 +1,18 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './Destination.module.css';
 import * as tt from '@tomtom-international/web-sdk-maps';
-import * as ttapi from '@tomtom-international/web-sdk-services';
+//import * as ttapi from '@tomtom-international/web-sdk-services';
 import '@tomtom-international/web-sdk-maps/dist/maps.css';
 import FuzzySearch from './Location';
-import ResultBox from './ResultList';
+import PoiDetails from './PoiDetails';
+
 
 const Destination = () => {
 	const mapElement = useRef();
 	const [longitude, setLongitude] = useState(3.733333);
 	const [latitude, setLatitude] = useState(51.049999);
 	const [poi, setPoi] = useState('')
+	//const [detail, setDetail] = useState('')
 
 	useEffect(() => {
 		let map = tt.map({
@@ -30,11 +32,13 @@ const Destination = () => {
 			console.log(touchingLayer);
 			if (touchingLayer.layer.id === 'POI') {
 				setPoi(touchingLayer.properties);
+				//setPoi(touchingLayer.properties.id);
 				console.log(poi);
 			}
 		});
-		/*let detail = () => {
-			let place = ttapi.services.placeById({
+		/*
+		let detail = (id) => {
+			let place = ttapi.services.poi({
 				key: process.env.REACT_APP_TOMTOM_API_KEY,
 				entityId: id,
 			})
@@ -44,19 +48,14 @@ const Destination = () => {
 			})
 		}*/
 		return () => map.remove();
-	}, [longitude, latitude]);
+	}, [poi,  longitude, latitude]);
 
 	return (
 		<div className={styles.container}>
 			<h1>Waar gaan we naartoe?</h1>
 			<FuzzySearch setLongitude={setLongitude} setLatitude={setLatitude} />
 			<div ref={mapElement} className={styles.map}>
-				<div className={styles.poi}> 
-					<div className={styles.poi_name}>{poi.name}</div>
-					<div className={styles.poi_categories}></div>
-					<div className={styles.poi_address}></div>
-					<div className={styles.poi_url}></div>
-				</div>
+				<PoiDetails poi={poi} />
 			</div>
 		</div>
 	);
