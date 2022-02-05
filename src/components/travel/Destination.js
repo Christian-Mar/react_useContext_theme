@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './Destination.module.css';
 import * as tt from '@tomtom-international/web-sdk-maps';
-//import * as ttapi from '@tomtom-international/web-sdk-services';
+import * as ttapi from '@tomtom-international/web-sdk-services';
 import '@tomtom-international/web-sdk-maps/dist/maps.css';
 import FuzzySearch from './Location';
 import PoiDetails from './PoiDetails';
@@ -31,22 +31,22 @@ const Destination = () => {
 			let touchingLayer = map.queryRenderedFeatures(event.point)[0];
 			console.log(touchingLayer);
 			if (touchingLayer.layer.id === 'POI') {
-				setPoi(touchingLayer.properties);
+				displayPoi(touchingLayer.properties.id);
 				//setPoi(touchingLayer.properties.id);
-				console.log(poi);
+				
 			}
 		});
-		/*
-		let detail = (id) => {
-			let place = ttapi.services.poi({
+		
+		let displayPoi = (id) => {
+			ttapi.services.placeById({
 				key: process.env.REACT_APP_TOMTOM_API_KEY,
 				entityId: id,
 			})
 			.then(function(response){
-				setDetail(response)
+				setPoi(response.results[0])
 				//let firstResult = response.results[0]
 			})
-		}*/
+		}
 		return () => map.remove();
 	}, [poi,  longitude, latitude]);
 
@@ -55,7 +55,7 @@ const Destination = () => {
 			<h1>Waar gaan we naartoe?</h1>
 			<FuzzySearch setLongitude={setLongitude} setLatitude={setLatitude} />
 			<div ref={mapElement} className={styles.map}>
-				<PoiDetails poi={poi} />
+				<PoiDetails info={poi} />
 			</div>
 		</div>
 	);
