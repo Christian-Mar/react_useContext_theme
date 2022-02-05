@@ -3,3 +3,7 @@
   font-weight: 800;
   margin: 1rem;
 }
+
+.instruction {
+  font-style: italic;
+}

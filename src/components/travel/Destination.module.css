@@ -17,3 +17,12 @@
   position: absolute;
   margin: 2rem;
 }
+
+.poi_name {
+  font-weight: 600;
+  margin: 1rem 0rem 0.5rem ;
+}
+
+.poi_category {
+  font-style: italic;
+}
