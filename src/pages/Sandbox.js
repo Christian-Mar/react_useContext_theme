@@ -8,6 +8,7 @@ const Travel = () => {
 	return (
 		<div className={styles.container} style={{ backgroundColor }}>
 			<h1 className={styles.title}>Hello world</h1>
+      <h3>Drag & drop</h3>
 		</div>
 	);
 };
