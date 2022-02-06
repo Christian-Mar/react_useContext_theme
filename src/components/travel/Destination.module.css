@@ -32,3 +32,8 @@
 .poi_address {
   padding: 1rem;
 }
+
+.poi_url {
+  color: navy;
+  cursor: pointer;
+}

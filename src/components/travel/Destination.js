@@ -85,8 +85,8 @@ const Destination = () => {
 					<div className={styles.poi_name}>{name}</div>
 					<div className={styles.poi_category}>{category}</div>
 					<div className={styles.poi_address}>{street}</div>
-					<div className={styles.poi_url}>
-						<a href={url}>{url}</a>
+					<div className={styles.poi_url} onClick={()=>{window.open(`https://${url}`)}}>
+						{url}
 					</div>
 					<div className={styles.poi_url}></div>
 					
