@@ -14,7 +14,7 @@ const Destination = () => {
 	const [street, setStreet] = useState();
 	const [url, setUrl] = useState();
 	const [category, setCategory] = useState();
-	//const [photo, setPhoto] = useState();
+	const [phone, setPhone] = useState();
 
 	useEffect(() => {
 		let map = tt.map({
@@ -34,7 +34,6 @@ const Destination = () => {
 			console.log(touchingLayer);
 			if (touchingLayer.layer.id === 'POI') {
 				displayPoi(touchingLayer.properties.id);
-				//displayPhoto(touchingLayer.properties.id);
 			}
 		});
 
@@ -51,13 +50,10 @@ const Destination = () => {
 					setCategory(response.results[0].poi.categories[0]);
 					setStreet(response.results[0].address.freeformAddress);
 					setUrl(response.results[0].poi.url);
+					setPhone(response.results[0].poi.phone);
 				});
 		};
-		console.log(poi);
-		console.log(street);
-		console.log(category);
-		console.log(name);
-		console.log(url);
+		console.log(poi); 
 /*
 		let displayPhoto = id => {
 			ttapi.services
@@ -74,7 +70,7 @@ const Destination = () => {
 		console.log(photo)
 */
 		return () => map.remove();
-	}, [category, url, poi, name, street, longitude, latitude]);
+	}, [phone, category, url, poi, name, street, longitude, latitude]);
 
 	return (
 		<div className={styles.container}>
@@ -85,11 +81,16 @@ const Destination = () => {
 					<div className={styles.poi_name}>{name}</div>
 					<div className={styles.poi_category}>{category}</div>
 					<div className={styles.poi_address}>{street}</div>
-					<div className={styles.poi_url} onClick={()=>{window.open(`https://${url}`)}}>
+					<div className={styles.poi_phone}>{phone}</div>
+					<div
+						className={styles.poi_url}
+						onClick={() => {
+							window.open(`https://${url}`);
+						}}
+					>
 						{url}
 					</div>
 					<div className={styles.poi_url}></div>
-					
 				</div>
 			</div>
 		</div>

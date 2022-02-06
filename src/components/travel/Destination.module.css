@@ -9,7 +9,8 @@
 
 .poi {
   background-color: white;
-  width: 200px;
+  min-width: 200px;
+  width: auto;
   height: 250px;
   border: solid 2px black;
   border-radius: 10px;
@@ -30,10 +31,11 @@
 }
 
 .poi_address {
-  padding: 1rem;
+  padding: .1rem;
 }
 
 .poi_url {
   color: navy;
   cursor: pointer;
+  max-width: 190px;
 }

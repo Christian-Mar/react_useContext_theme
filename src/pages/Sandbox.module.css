@@ -1,0 +1,11 @@
+.container {
+  height: 120vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.title {
+  margin: 1rem;
+}

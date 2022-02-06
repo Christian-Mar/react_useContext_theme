@@ -10,6 +10,7 @@ li {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
 .dog_image {
@@ -17,10 +18,11 @@ li {
   height: auto;
   border-radius: 5px;
   border: solid 3px black;
-  margin-bottom: -1em;
+  margin-bottom: .5em;
 }
 
 p {
   font-size: small;
   font-weight: 400;
+  
 }

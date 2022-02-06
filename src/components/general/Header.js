@@ -16,6 +16,9 @@ const Header = () => {
 				<NavLink to='/travel' className={styles.link}>
 					Travel
 				</NavLink>
+				<NavLink to='/sandbox' className={styles.link}>
+					Sandbox
+				</NavLink>
 				<a
 					className={styles.link}
 					href='https://github.com/Christian-Mar/react_useContext_theme'

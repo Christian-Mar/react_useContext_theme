@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Dogs from './pages/Dogs';
 import Travel from './pages/Travel';
 import DogDetail from './pages/DogDetail';
+import Sandbox from './pages/Sandbox';
 import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
 					<Route path='/dogs' element={<Dogs />} />
 					<Route path='/dogs/:id' element={<DogDetail />} />
 					<Route path='/travel' element={<Travel />} />
+					<Route path='/sandbox' element={<Sandbox />} />
 				</Routes>
 			</div>
 		</ThemeProvider>

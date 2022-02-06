@@ -45,7 +45,7 @@ export default function FuzzySearch(props) {
 			<input
 				className={styles.inputField}
 				type='text'
-				placeholder='Plaats, adres, ...'
+				placeholder='Gemeente, Stad, Plaats, adres, ...'
 				value={name}
 				onChange={e => {
 					setName(e.target.value);
