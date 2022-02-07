@@ -38,18 +38,19 @@ function DragDrop() {
 	const [board, setBoard] = useState([]);
 
 	const [{ isOver }, drop] = useDrop(() => ({
-		accept: 'image',
+		accept: "image",
 		drop: item => addImageToBoard(item.id),
 		collect: monitor => ({
 			isOver: !!monitor.isOver(),
 		}),
 	}));
 
-	//console.log({isOver})
+	console.log({isOver})
 
 	const addImageToBoard = id => {
-		const pictureList = PictureList.filter(picture => id === picture.id);
-		setBoard(board => [...board, pictureList[0]]);
+		const pictureList = PictureList.filter((picture) => id === picture.id);
+		//setBoard([pictureList[0]]);
+    setBoard(board => [...board, pictureList[0]]);
 		// to replace the photo: setBoard([pictureList[0]]);
 	};
 

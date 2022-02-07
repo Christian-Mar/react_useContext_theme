@@ -1,5 +1,5 @@
 import * as ttapi from '@tomtom-international/web-sdk-services';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ResultBox from './ResultList';
 import styles from './Location.module.css';
 

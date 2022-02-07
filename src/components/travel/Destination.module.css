@@ -19,16 +19,15 @@
   border: solid 3px black;
 }
 .poi {
-  background-color: white;
-  min-width: 200px;
-  width: auto;
-  height: 250px;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
   border: solid 2px black;
-  border-radius: 10px;
+  border-radius: 5px;
+  background-color: white;
   z-index: 1;
   position: absolute;
-  margin: 1rem;
-  padding: 1.5rem;
+  padding: 1em;
 
 }
 
@@ -49,4 +48,18 @@
   color: navy;
   cursor: pointer;
   max-width: 190px;
+}
+
+.identity_button {
+  flex: 40px;
+  margin: 5px;
+  padding: 5px 10px;
+  color: white;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.identity_button:hover {
+  background-color: hsl(210, 12%, 25%);
 }

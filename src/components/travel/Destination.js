@@ -4,6 +4,8 @@ import * as tt from '@tomtom-international/web-sdk-maps';
 import * as ttapi from '@tomtom-international/web-sdk-services';
 import '@tomtom-international/web-sdk-maps/dist/maps.css';
 import FuzzySearch from './Location';
+import { db } from '../../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 const Destination = () => {
 	const mapElement = useRef();
@@ -15,7 +17,7 @@ const Destination = () => {
 	const [url, setUrl] = useState();
 	const [category, setCategory] = useState();
 	const [phone, setPhone] = useState();
-	const [place, setPlace] =useState('');
+	//const [place, setPlace] =useState('');
 
 	useEffect(() => {
 		let map = tt.map({
@@ -26,7 +28,7 @@ const Destination = () => {
 				trafficFlow: true,
 			},
 			center: [longitude, latitude],
-			zoom: 15,
+			zoom: 18,
 			language: 'nl-NL',
 		});
 
@@ -73,6 +75,23 @@ const Destination = () => {
 		return () => map.remove();
 	}, [phone, category, url, poi, name, street, longitude, latitude]);
 
+	const handleFavorite = async e => {
+		e.preventDefault();
+		try {
+			await addDoc(collection(db, 'destinations'), {
+				poi: poi,
+				name: name,
+				category: category,
+				street: street,
+				url: url || null,
+				phone: phone || null,
+			});
+		} catch (err) {
+			alert(err);
+		}
+	};
+
+
 	return (
 		<div className={styles.container}>
 			<h1>Waar gaan we naartoe?</h1>
@@ -93,10 +112,13 @@ const Destination = () => {
 							{url}
 						</div>
 						<div className={styles.poi_url}></div>
+						<button className={styles.identity_button} onClick={handleFavorite}>
+							Voeg toe aan favorieten
+						</button>
 					</div>
 				</div>
 				<div className={styles.list}>
-							<h5 setPlace={setPlace}>We gaan naar {place}</h5>
+					<h5>We gaan naar </h5>
 				</div>
 			</div>
 		</div>
