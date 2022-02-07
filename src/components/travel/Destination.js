@@ -11,14 +11,14 @@ const Destination = () => {
 	const mapElement = useRef();
 	const [longitude, setLongitude] = useState(3.733333);
 	const [latitude, setLatitude] = useState(51.049999);
-	const [poi, setPoi] = useState();
+	const [poi, setPoi] = useState(null);
 	const [name, setName] = useState();
 	const [street, setStreet] = useState();
 	const [url, setUrl] = useState();
 	const [category, setCategory] = useState();
 	const [phone, setPhone] = useState();
 	//const [place, setPlace] =useState('');
-
+ console.log(poi)
 	useEffect(() => {
 		let map = tt.map({
 			key: process.env.REACT_APP_TOMTOM_API_KEY,
@@ -91,14 +91,14 @@ const Destination = () => {
 		}
 	};
 
-
 	return (
 		<div className={styles.container}>
 			<h1>Waar gaan we naartoe?</h1>
 			<FuzzySearch setLongitude={setLongitude} setLatitude={setLatitude} />
 			<div className={styles.containerMap}>
 				<div ref={mapElement} className={styles.map}>
-					<div className={styles.poi}>
+
+				{ poi ? <div className={styles.poi}>
 						<div className={styles.poi_name}>{name}</div>
 						<div className={styles.poi_category}>{category}</div>
 						<div className={styles.poi_address}>{street}</div>
@@ -115,8 +115,10 @@ const Destination = () => {
 						<button className={styles.identity_button} onClick={handleFavorite}>
 							Voeg toe aan favorieten
 						</button>
+					</div> : null}
+					
+				
 					</div>
-				</div>
 				<div className={styles.list}>
 					<h5>We gaan naar </h5>
 				</div>
