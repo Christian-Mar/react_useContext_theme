@@ -1,12 +1,17 @@
 import * as ttapi from '@tomtom-international/web-sdk-services';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ResultBox from './ResultList';
 import styles from './Location.module.css';
 
 export default function FuzzySearch(props) {
 	const [name, setName] = useState('');
 	const [result, setResult] = useState([]);
-
+console.log(result)
+	/*
+	 useEffect(() => {
+			props.setPlace(props.position);
+		}, [props.setPlace]);
+*/
 	const fuzzySearch = name => {
 		ttapi.services
 			.fuzzySearch({

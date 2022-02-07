@@ -15,6 +15,7 @@ const Destination = () => {
 	const [url, setUrl] = useState();
 	const [category, setCategory] = useState();
 	const [phone, setPhone] = useState();
+	const [place, setPlace] =useState('');
 
 	useEffect(() => {
 		let map = tt.map({
@@ -25,7 +26,7 @@ const Destination = () => {
 				trafficFlow: true,
 			},
 			center: [longitude, latitude],
-			zoom: 14,
+			zoom: 15,
 			language: 'nl-NL',
 		});
 
@@ -53,8 +54,8 @@ const Destination = () => {
 					setPhone(response.results[0].poi.phone);
 				});
 		};
-		console.log(poi); 
-/*
+		console.log(poi);
+		/*
 		let displayPhoto = id => {
 			ttapi.services
 				.poiPhotos({
@@ -76,21 +77,26 @@ const Destination = () => {
 		<div className={styles.container}>
 			<h1>Waar gaan we naartoe?</h1>
 			<FuzzySearch setLongitude={setLongitude} setLatitude={setLatitude} />
-			<div ref={mapElement} className={styles.map}>
-				<div className={styles.poi}>
-					<div className={styles.poi_name}>{name}</div>
-					<div className={styles.poi_category}>{category}</div>
-					<div className={styles.poi_address}>{street}</div>
-					<div className={styles.poi_phone}>{phone}</div>
-					<div
-						className={styles.poi_url}
-						onClick={() => {
-							window.open(`https://${url}`);
-						}}
-					>
-						{url}
+			<div className={styles.containerMap}>
+				<div ref={mapElement} className={styles.map}>
+					<div className={styles.poi}>
+						<div className={styles.poi_name}>{name}</div>
+						<div className={styles.poi_category}>{category}</div>
+						<div className={styles.poi_address}>{street}</div>
+						<div className={styles.poi_phone}>{phone}</div>
+						<div
+							className={styles.poi_url}
+							onClick={() => {
+								window.open(`https://${url}`);
+							}}
+						>
+							{url}
+						</div>
+						<div className={styles.poi_url}></div>
 					</div>
-					<div className={styles.poi_url}></div>
+				</div>
+				<div className={styles.list}>
+							<h5 setPlace={setPlace}>We gaan naar {place}</h5>
 				</div>
 			</div>
 		</div>

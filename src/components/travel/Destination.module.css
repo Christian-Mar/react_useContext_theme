@@ -1,12 +1,23 @@
+.containerMap {
+ display: flex;
+}
+
 .map {
   height: 65vh;
-  width: 75vw;
+  width: 70vw;
+  margin-right: 3vw;
   font-size: 1em;
   border-radius: 10px;
   border: solid 3px black;
   overflow: hidden;
 }
 
+.list {
+  height:65vh;
+  width: 20vw;
+   border-radius: 10px;
+  border: solid 3px black;
+}
 .poi {
   background-color: white;
   min-width: 200px;
