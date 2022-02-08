@@ -28,7 +28,7 @@ const Destination = () => {
 				trafficFlow: true,
 			},
 			center: [longitude, latitude],
-			zoom: 18,
+			zoom: 14,
 			language: 'nl-NL',
 		});
 

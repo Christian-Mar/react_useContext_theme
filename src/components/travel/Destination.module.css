@@ -14,9 +14,10 @@
 
 .list {
   height:65vh;
-  width: 20vw;
+  width: 21vw;
    border-radius: 10px;
   border: solid 3px black;
+  background-color: white;
 }
 .poi {
   display: flex;
@@ -27,7 +28,7 @@
   background-color: white;
   z-index: 1;
   position: absolute;
-  padding: 1em;
+  
 
 }
 
@@ -41,22 +42,22 @@
 }
 
 .poi_address {
-  padding: .1rem;
+  padding: 0 .3rem;
 }
 
 .poi_url {
   color: navy;
   cursor: pointer;
   max-width: 190px;
+  padding: .3em;
 }
 
+
 .identity_button {
-  flex: 40px;
-  margin: 5px;
-  padding: 5px 10px;
-  color: white;
-  background-color: black;
+  height: 20px;
   border: none;
+  color: white;
+  background-color: hsl(210, 12%, 15%);flex: 40px;
   cursor: pointer;
 }
 
