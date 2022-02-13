@@ -6,6 +6,7 @@ import '@tomtom-international/web-sdk-maps/dist/maps.css';
 import FuzzySearch from './Location';
 import { db } from '../../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import FavoriteList from './FavoriteList';
 
 const Destination = () => {
 	const mapElement = useRef();
@@ -120,7 +121,8 @@ const Destination = () => {
 				
 					</div>
 				<div className={styles.list}>
-					<h5>We gaan naar </h5>
+					<h5>We gaan naar: </h5>
+					<FavoriteList />
 				</div>
 			</div>
 		</div>
