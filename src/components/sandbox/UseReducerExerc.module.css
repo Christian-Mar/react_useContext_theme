@@ -1,0 +1,22 @@
+.container {
+  margin-bottom: 45rem;
+}
+ 
+.counter {
+  color: red;
+  font-weight: 700;
+  margin: 2rem;
+}
+
+.button {
+  flex: 40px;
+  margin: 5px;
+  padding: 5px 10px;
+  color: white;
+  background-color: black;
+  border: none;
+}
+
+.button:hover {
+  background-color: hsl(210, 12%, 15%);
+}
