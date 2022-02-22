@@ -4,6 +4,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import DragDrop from '../components/sandbox/DragDrop';
 import ReducerApp from '../components/sandbox/UseReducerExerc';
+import UseReducer2 from '../components/sandbox/UseReducerExerc2';
 
 import styles from './Sandbox.module.css';
 
@@ -20,11 +21,15 @@ const Sandbox = () => {
 	return (
 		<DndProvider backend={HTML5Backend}>
 			<div className={styles.container} style={{ backgroundColor }}>
-				<h2 className={styles.title}>useReducer</h2>
-				<ReducerApp />
-				
-				<h2 className={styles.title}>Drag & drop</h2>
-				<DragDrop />
+				<div className={styles.sandboxplay}>
+					<h2 className={styles.title}>useReducer</h2>
+					<ReducerApp />
+					<UseReducer2 />
+				</div>
+				<div className={styles.sandboxplay}>
+					<h2 className={styles.title}>Drag & drop</h2>
+					<DragDrop />
+				</div>
 			</div>
 		</DndProvider>
 	);
