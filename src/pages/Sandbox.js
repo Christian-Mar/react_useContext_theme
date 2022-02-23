@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import DragDrop from '../components/sandbox/DragDrop';
+
 import ReducerApp from '../components/sandbox/UseReducerExerc';
 import UseReducer2 from '../components/sandbox/UseReducerExerc2';
 
@@ -26,10 +26,7 @@ const Sandbox = () => {
 					<ReducerApp />
 					<UseReducer2 />
 				</div>
-				<div className={styles.sandboxplay}>
-					<h2 className={styles.title}>Drag & drop</h2>
-					<DragDrop />
-				</div>
+			
 			</div>
 		</DndProvider>
 	);

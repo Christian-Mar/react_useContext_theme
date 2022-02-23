@@ -1,3 +1,4 @@
+/*
 import { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import styles from './DragDrop.module.css';
@@ -71,3 +72,4 @@ function DragDrop() {
 }
 
 export default DragDrop;
+*/

@@ -12,11 +12,13 @@ const reducer = (state, action) => {
 			return { ...state, person: action.value };
 		case types.COLOR:
 			return { ...state, color: action.value };
+		default:
+			throw new Error();
 	}
 };
 
 const initialState = {
-	color: 'black',
+	color: 'lime',
 	person: 'aristoteles',
 };
 
@@ -24,37 +26,50 @@ export default function UseReducer2() {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
-		<div>
-			<label>Kies een achtergrondkleur en een persoon</label>
+		<div className={styles.container}>
+			<p className={styles.text}>Kies een achtergrondkleur en een persoon</p>
 			<br />
 			<select
+				className={styles.select}
 				value={state.color}
 				onChange={event => {
 					dispatch({ type: types.COLOR, value: event.target.value });
 				}}
 			>
-				<option value='orange'>Oranje</option>
-				<option value='pink'>Roze</option>
-				<option value='blue'>Blauw</option>
+				<option value='lime'>Groen</option>
+				<option value='yellow'>Geel</option>
+				<option value='orangered'>Rood</option>
+				<option value='deeppink'>Roze</option>
 			</select>
 			<select
+				className={styles.select}
 				value={state.person}
 				onChange={event => {
 					dispatch({ type: types.PERSON, value: event.target.value });
 				}}
 			>
 				<option value='aristoteles'>Aristoteles</option>
-				<option value='darwin'>Darwin</option>
-				<option value='davinci'>Da Vinci</option>
-				<option value='michelangelo'>Michelangelo</option>
-				<option value='newton'>Newton</option>
-				<option value='shakespeare'>Shakespeare</option>
+				<option value='darwin'>Charles Darwin</option>
+				<option value='davinci'>Leonardo Da Vinci</option>
+				<option value='grimm'>Gebroeders Grimm</option>
+				<option value='newton'>Isaac Newton</option>
+				<option value='seneca'>Lucius Seneca</option>
+				<option value='goethe'>Johann Wolfgang von Goethe</option>
 			</select>
 			<br />
 			<br />
-			
-      <div className={styles.image} style={{ backgroundColor: `${state.color}` }}>
-      <img src={`images/${state.person}.png`} alt='bekende figuur' height='300' background-color="blue"/> </div>
+
+			<div
+				className={styles.image}
+				style={{ backgroundColor: `${state.color}` }}
+			>
+				<img
+					src={`images/${state.person}.png`}
+					alt='bekende figuur'
+					height='300'
+					background-color='blue'
+				/>{' '}
+			</div>
 		</div>
 	);
 }
