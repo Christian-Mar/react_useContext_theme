@@ -1,7 +1,5 @@
 import React, { useReducer } from 'react';
-import aristoteles from '../../images/aristoteles.png';
-import darwin from '../../images/darwin.png';
-import davinci from '../../images/davinci.png';
+import styles from './UseReducerExerc2.module.css';
 
 const types = {
 	PERSON: 'PERSON',
@@ -35,9 +33,9 @@ export default function UseReducer2() {
 					dispatch({ type: types.COLOR, value: event.target.value });
 				}}
 			>
-				<option value='black'>Black</option>
-				<option value='pink'>Pink</option>
-				<option value='blue'>Blue</option>
+				<option value='orange'>Oranje</option>
+				<option value='pink'>Roze</option>
+				<option value='blue'>Blauw</option>
 			</select>
 			<select
 				value={state.person}
@@ -54,8 +52,9 @@ export default function UseReducer2() {
 			</select>
 			<br />
 			<br />
-			You chose a {state.color} 
-      <img src={`images/${state.person}.png`} alt='bekende figuur' height='300' background-color="blue"/> {state.person}
+			
+      <div className={styles.image} style={{ backgroundColor: `${state.color}` }}>
+      <img src={`images/${state.person}.png`} alt='bekende figuur' height='300' background-color="blue"/> </div>
 		</div>
 	);
 }
